@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Suscriptores e Intereses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<%- include('partials/header') %>
+<%- include('partials/menu') %>
+
+<h2>Detalles del Suscriptor</h2>
+
+<div class="card mt-3">
+  <div class="card-body">
+    <h5 class="card-title"><%= suscriptor.nombre %></h5>
+    <p><strong>Email:</strong> <%= suscriptor.email %></p>
+    <p><strong>Fecha Registro:</strong> <%= suscriptor.fecha_registro.toLocaleDateString() %></p>
+    <p><strong>Intereses:</strong></p>
+    <ul>
+      <% suscriptor.Interes.forEach(i => { %>
+        <li><%= i.descripcion %></li>
+      <% }) %>
+    </ul>
+    <a href="/suscriptores" class="btn btn-secondary">Volver</a>
+  </div>
+</div>
+<%- include('partials/footer') %>
